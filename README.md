@@ -46,3 +46,31 @@ port=9093
 然后先运行LogConsumer,在运行LogProducer.java
 5、官网是最好的参考
 http://kafka.apache.org/documentation.html
+
+============================
+搭建kafka集群
+搭建一个多个broker的集群
+
+刚才只是启动了单个broker，现在启动有3个broker组成的集群，这些broker节点也都是在本机上的：
+首先为每个节点编写配置文件：
+ 
+> cp config/server.properties config/server-1.properties
+> cp config/server.properties config/server-2.properties
+在拷贝出的新文件中添加以下参数：
+config/server-1.properties:
+    broker.id=1
+    port=9093
+    log.dir=/tmp/kafka-logs-1
+ 
+config/server-2.properties:
+    broker.id=2
+    port=9094
+    log.dir=/tmp/kafka-logs-2
+broker.id在集群中唯一的标注一个节点，因为在同一个机器上，所以必须制定不同的端口和日志文件，避免数据被覆盖。
+ 
+We already have Zookeeper and our single node started, so we just need to start the two new nodes:
+刚才已经启动可Zookeeper和一个节点，现在启动另外两个节点：
+> bin/kafka-server-start.sh config/server-1.properties &
+...
+> bin/kafka-server-start.sh config/server-2.properties &
+...================================================
