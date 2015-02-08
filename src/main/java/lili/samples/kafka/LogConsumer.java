@@ -1,4 +1,4 @@
-package lili.samples;
+package lili.samples.kafka;
 
 import kafka.consumer.Consumer;
 import kafka.consumer.ConsumerConfig;

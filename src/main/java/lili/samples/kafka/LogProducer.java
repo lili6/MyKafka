@@ -1,4 +1,4 @@
-package lili.samples;
+package lili.samples.kafka;
 
 import kafka.javaapi.producer.Producer;
 import kafka.producer.KeyedMessage;
