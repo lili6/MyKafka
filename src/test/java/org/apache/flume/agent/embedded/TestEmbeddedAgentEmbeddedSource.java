@@ -18,27 +18,21 @@
  */
 package org.apache.flume.agent.embedded;
 
-import static org.mockito.Mockito.*;
-
-import java.util.List;
-import java.util.Map;
-
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import junit.framework.Assert;
-
-import org.apache.flume.Channel;
-import org.apache.flume.Event;
-import org.apache.flume.EventDeliveryException;
-import org.apache.flume.SinkRunner;
-import org.apache.flume.SourceRunner;
+import org.apache.flume.*;
 import org.apache.flume.event.SimpleEvent;
 import org.apache.flume.lifecycle.LifecycleState;
 import org.apache.flume.node.MaterializedConfiguration;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
+import java.util.List;
+import java.util.Map;
+
+import static org.mockito.Mockito.*;
 
 public class TestEmbeddedAgentEmbeddedSource {
 

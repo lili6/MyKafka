@@ -1,4 +1,4 @@
-package lili.flume;
+package lili.flume.test;
 
 import org.apache.flume.Event;
 import org.apache.flume.EventDeliveryException;

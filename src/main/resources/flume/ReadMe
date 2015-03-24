@@ -1,0 +1,38 @@
+lili.flume.* 为flume的双节点部署代码
+从AvroAgentClient 发送数据
+
+ProcessSource对数据进行处理，并压缩给FileChannel
+ProcessSink从FileChannel获取数据，然后打印出来...
+
+1、下载flume-1.5.2 解压缩到 env下面
+2、
+myflume-1.0-SNAPSHOT-jar-with-dependencies.jar包放到   所有依赖的包也都放到jar
+flume-1.5.2/lib
+将flume-5141.properties 放到 flume-1.5.2/conf  需要修改路径
+将flume-5142.properties 放到 flume-1.5.2/conf  需要修改路径
+将log4j.properties 放到 flume-1.5.2/conf
+
+3、将flume-start.sh和flume-start-all.sh 放到 flume-1.5.2/bin下面
+
+4、设置FLUME-HOME= ~/env/flume-1.5.2
+启动flume-start-all.sh
+
+tail -f ~/env/flume-1.5.2/logs/flume-debug.log
+
+5、通过lili.flume.agent.AvroAgentClient 发送数据
+主要修改agent.properties
+
+===========配置环境变量
+Nano ~/.bashrc
+FLUME_HOME=/home/mrdTomcat/env/flume-1.5.2
+PATH=$PATH:$JAVA_HOME/bin:$ZOOKEEPER_HOME/bin:$FLUME_HOME/bin
+export  FLUME_HOME
+alias flume='cd ~/env/flume-1.5.2'
+alias flog='tail -f ~/env/flume-1.5.2/logs/flume-debug.log'
+source ~/.bashrc
+[mrdTomcat@localhost env]$ flume-ng version
+Flume 1.5.2
+Source code repository: https://git-wip-us.apache.org/repos/asf/flume.git
+Revision: 229442aa6835ee0faa17e3034bcab42754c460f5
+Compiled by hshreedharan on Wed Nov 12 12:51:22 PST 2014
+From source with checksum 837f81bd1e304a65fcaf8e5f692b3f18

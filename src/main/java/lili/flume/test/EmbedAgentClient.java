@@ -1,4 +1,4 @@
-package lili.flume;
+package lili.flume.test;
 
 import com.google.common.collect.Lists;
 import org.apache.flume.Event;
